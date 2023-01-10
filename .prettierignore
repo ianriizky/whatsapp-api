@@ -1,1 +1,4 @@
 build
+openapi.yml
+postman_collection.json
+resources/views/api-doc.html

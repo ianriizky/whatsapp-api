@@ -2,3 +2,6 @@
 /coverage
 /node_modules
 .env
+openapi.yml
+postman_collection.json
+resources/views/api-doc.html
