@@ -16,7 +16,7 @@
     "format": "prettier --write .",
     "p2o": "npx p2o postman_collection.json -f openapi.yml",
     "redoc:build": "npx redoc-cli build openapi.yml --output=resources/views/api-doc.html",
-    "api-doc": "npm run p2o && npm run redoc:build"
+    "api-doc": "yarn p2o && yarn redoc:build"
   },
   "repository": {
     "type": "git",
