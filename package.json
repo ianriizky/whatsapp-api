@@ -13,7 +13,10 @@
     "build": "node ace build --production",
     "start": "node server.js",
     "lint": "eslint . --ext=.ts",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "p2o": "npx p2o postman_collection.json -f openapi.yml",
+    "redoc:build": "npx redoc-cli build openapi.yml --output=resources/views/api-doc.html",
+    "api-doc": "npm run p2o && npm run redoc:build"
   },
   "repository": {
     "type": "git",
@@ -49,7 +52,10 @@
   "dependencies": {
     "@adonisjs/core": "^5.8.0",
     "@adonisjs/repl": "^3.1.0",
+    "@adonisjs/view": "^6.2.0",
+    "postman-to-openapi": "^3.0.0",
     "proxy-addr": "^2.0.7",
+    "redoc-cli": "^0.13.20",
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.21"
   }

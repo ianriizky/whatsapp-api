@@ -19,3 +19,4 @@
 */
 
 import './api'
+import './web'

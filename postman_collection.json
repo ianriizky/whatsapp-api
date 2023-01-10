@@ -1,0 +1,160 @@
+{
+  "info": {
+    "_postman_id": "c3bcfb31-4370-49fd-9f36-e197a1235d30",
+    "name": "ianriizky-whatsapp-api",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "3383015"
+  },
+  "item": [
+    {
+      "name": "home",
+      "item": [
+        {
+          "name": "index",
+          "request": {
+            "auth": {
+              "type": "noauth"
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}",
+              "host": ["{{url}}"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "app-version",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/app-version",
+              "host": ["{{url}}"],
+              "path": ["app-version"]
+            }
+          },
+          "response": []
+        }
+      ],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [""]
+          }
+        }
+      ]
+    },
+    {
+      "name": "connections",
+      "item": [
+        {
+          "name": "store",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n    \"data\": {\n        \"type\": \"connections\",\n        \"attributes\": {\n            \"phone_number\": \"6285161456264\"\n        }\n    }\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{url}}/connections",
+              "host": ["{{url}}"],
+              "path": ["connections"]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "show",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{url}}/connections/:phone_number",
+              "host": ["{{url}}"],
+              "path": ["connections", ":phone_number"],
+              "variable": [
+                {
+                  "key": "phone_number",
+                  "value": "6285161456264"
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{token}}",
+        "type": "string"
+      }
+    ]
+  },
+  "event": [
+    {
+      "listen": "prerequest",
+      "script": {
+        "type": "text/javascript",
+        "exec": [
+          "pm.request.headers.add({ key: 'Accept', value: 'application/vnd.api+json' });",
+          "pm.request.headers.add({ key: 'Content-Type', value: 'application/vnd.api+json' });",
+          "",
+          "const version = pm.collectionVariables.get(\"version\") ? `/${pm.collectionVariables.get(\"version\")}` : \"\";",
+          "",
+          "pm.collectionVariables.set(\"url\", `${pm.collectionVariables.get(\"base_url\")}${version}`);"
+        ]
+      }
+    },
+    {
+      "listen": "test",
+      "script": {
+        "type": "text/javascript",
+        "exec": [""]
+      }
+    }
+  ],
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000/api",
+      "type": "string"
+    },
+    {
+      "key": "version",
+      "value": "v1",
+      "type": "string"
+    },
+    {
+      "key": "url",
+      "value": "",
+      "type": "string"
+    },
+    {
+      "key": "token",
+      "value": "",
+      "type": "string"
+    }
+  ]
+}

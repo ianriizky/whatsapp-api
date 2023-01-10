@@ -13,7 +13,7 @@
     "Contracts": "contracts"
   },
   "preloads": ["./routes", "./start/kernel"],
-  "providers": ["./providers/AppProvider", "@adonisjs/core"],
+  "providers": ["./providers/AppProvider", "@adonisjs/core", "@adonisjs/view"],
   "aceProviders": ["@adonisjs/repl"],
   "tests": {
     "suites": [
@@ -24,5 +24,14 @@
       }
     ]
   },
-  "testProviders": ["@japa/preset-adonis/TestsProvider"]
+  "testProviders": ["@japa/preset-adonis/TestsProvider"],
+  "directories": {
+    "views": "resources/views"
+  },
+  "metaFiles": [
+    {
+      "pattern": "resources/views/**/*.edge",
+      "reloadServer": false
+    }
+  ]
 }
