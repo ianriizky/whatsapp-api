@@ -4,8 +4,7 @@ Bridging application for WhatsApp API using AdonisJS.
 
 ## Requirement
 
-- Node.js ^18.11.0
-- npm ^8.19.2
+- Node.js ^18.13.0
 
 ## Changelog
 

@@ -5,8 +5,7 @@
   "private": true,
   "engineStrict": true,
   "engines": {
-    "node": "^18.11.0",
-    "npm": "^8.19.2"
+    "node": "^18.13.0"
   },
   "scripts": {
     "dev": "node ace serve --watch",
@@ -15,8 +14,10 @@
     "lint": "eslint . --ext=.ts",
     "format": "prettier --write .",
     "p2o": "npx p2o postman_collection.json -f openapi.yml",
-    "redoc:build": "npx redoc-cli build openapi.yml --output=resources/views/api-doc.html",
-    "api-doc": "yarn p2o && yarn redoc:build"
+    "redoc:build": "npx @redocly/cli build-docs openapi.yml --output=resources/views/api-doc.html",
+    "api-doc": "yarn p2o && yarn redoc:build",
+    "requirements-check": "babel-node check-version.js",
+    "postinstall": "yarn requirements-check"
   },
   "repository": {
     "type": "git",
@@ -36,6 +37,7 @@
     "@adonisjs/assembler": "^5.9.5",
     "@japa/preset-adonis": "^1.2.0",
     "@japa/runner": "^2.2.2",
+    "@redocly/cli": "^1.0.0-beta.124",
     "@types/proxy-addr": "^2.0.0",
     "@types/source-map-support": "^0.5.6",
     "adonis-preset-ts": "^2.1.0",
@@ -44,6 +46,7 @@
     "eslint-plugin-adonis": "^2.1.1",
     "eslint-plugin-prettier": "^4.2.1",
     "pino-pretty": "^9.1.1",
+    "postman-to-openapi": "^3.0.1",
     "prettier": "^2.8.2",
     "typescript": "~4.6",
     "youch": "^3.2.2",
@@ -54,9 +57,9 @@
     "@adonisjs/core": "^5.8.0",
     "@adonisjs/repl": "^3.1.0",
     "@adonisjs/view": "^6.2.0",
-    "postman-to-openapi": "^3.0.0",
+    "@babel/core": "^7.21.3",
+    "@babel/node": "^7.20.7",
     "proxy-addr": "^2.0.7",
-    "redoc-cli": "^0.13.20",
     "reflect-metadata": "^0.1.13",
     "source-map-support": "^0.5.21"
   }
